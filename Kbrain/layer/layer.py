@@ -40,23 +40,3 @@ class Softmax:
     def backward(self, dvalues):
         self.dinputs = dvalues
         return self.dinputs
-
-# 입력 데이터 (예: 2개의 입력)
-X = np.array([[1, 2, 3], [4, 5, 6]])
-
-# 레이어 구성
-dense1 = Dense(3, 2)  # 3개의 입력, 2개의 출력
-activation1 = ReLU()
-
-dense2 = Dense(2, 3)  # 2개의 입력, 3개의 출력
-activation2 = Softmax()
-
-# 순전파
-output1 = dense1.forward(X)
-output1 = activation1.forward(output1)
-
-output2 = dense2.forward(output1)
-output2 = activation2.forward(output2)
-
-print("Final Output:")
-print(output2)
